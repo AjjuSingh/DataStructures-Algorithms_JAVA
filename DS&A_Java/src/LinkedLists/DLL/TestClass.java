@@ -11,13 +11,15 @@ public class TestClass {
 	obj.addNode(3);
 	obj.addNode(4);
 	obj.addNode(5);
-	obj.addNodeAtFirst(5);
-	obj.addNodePos(25, 3);
+	obj.addNodeAtFirst(0);
+	obj.addNodePos(2, 3);
 	obj.travase();
+	
 	obj.deleteNodeAtFirst();
 	obj.travase();
 	obj.deleteNodeAtLast();
 	obj.travase();
+	
 	obj.deleteMid(1);
 	obj.travase();
 	

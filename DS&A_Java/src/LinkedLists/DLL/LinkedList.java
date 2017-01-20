@@ -196,7 +196,7 @@ public class LinkedList {
 		{
 			Node temp=head;
 			Node tail=null;
-			System.out.println("one way round");
+			System.out.println("single directional");
 			while(temp!=null)
 			{
 				System.out.print(temp.data+" --> ");
@@ -205,7 +205,7 @@ public class LinkedList {
 			}
 			System.out.println("NULL");
 			
-			System.out.println("otherway round");
+			System.out.println("bi directional");
 			temp=tail;
 			while(temp!=null)
 			{
@@ -214,6 +214,7 @@ public class LinkedList {
 				
 			}
 			System.out.println("NULL");
+			System.out.println();
 		}
 
 		
