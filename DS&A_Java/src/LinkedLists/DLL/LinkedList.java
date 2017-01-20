@@ -1,5 +1,6 @@
 package LinkedLists.DLL;
 
+
 public class LinkedList {
 	
 	private Node head,tail;
@@ -190,6 +191,21 @@ public class LinkedList {
 			
 		}
 		
+
+		
+		public boolean cointains(int data)
+		{
+			Node temp=head;
+			while(temp!=null)
+			{
+				if(temp.data==data)
+				{
+					return true;
+				}
+				temp=temp.next;
+			}
+			return false;
+		}
 		
 		//Time=O(n) 
 		public void travase()
