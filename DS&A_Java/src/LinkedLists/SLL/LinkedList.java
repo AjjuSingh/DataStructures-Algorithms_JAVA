@@ -20,7 +20,7 @@ public class LinkedList {
 		else
 		{
 		tail.next=newNode;
-		tail=tail.next;
+		tail=newNode;
 		size++;
 		}
 	}
@@ -43,6 +43,7 @@ public class LinkedList {
 					temp=temp.next;
 				}
 				temp.next=newNode;
+				tail=newNode;
 				size++;
 			}
 		}
