@@ -150,7 +150,11 @@ public class LinkedList {
 			{
 				if(count==pos-1)
 				{
-					temp.next=temp.next.next;
+					Node node=temp.next;
+					
+					node.prev.next=node.next;
+					node.next.prev=node.prev;
+					
 					size--;
 					break;
 				}
@@ -180,6 +184,7 @@ public class LinkedList {
 			{
 				node.prev.next=node.next;
 				node.next.prev=node.prev;
+				size--;
 			}
 			
 			
