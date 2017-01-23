@@ -216,7 +216,7 @@ public class BST {
 		}
 		else
 		{
-		root.left=callDelete(root.right, newNode);	
+		root.right=callDelete(root.right, newNode);	
 		}
 		
 		return root;
