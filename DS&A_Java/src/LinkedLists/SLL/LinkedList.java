@@ -179,7 +179,7 @@ public class LinkedList {
 		}
 		while(temp!=null)
 		{
-			if(temp.next==node)
+			if(temp.next.data==node.data)
 			{
 				temp.next=temp.next.next;
 				size--;
