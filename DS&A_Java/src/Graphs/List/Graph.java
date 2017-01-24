@@ -24,6 +24,7 @@ public class Graph {
 		}
 	}
 	
+	//Time O(1)
 	public void addEdge(int s,int d)
 	{
 		if(s>=0&&s<n&&d>=0&&d<n)
@@ -36,6 +37,8 @@ public class Graph {
 			l1.addNode(g.get(s).getHead().getData());
 		}
 	}
+	
+	//Time O(v) v-no of vertices
 	public void removeEdge(int s,int d) throws Exception
 	{
 		if(s>=0&&s<n&&d>=0&&d<n)
@@ -70,6 +73,54 @@ public class Graph {
 			throw new Exception("Vertex is not present");
 	}
 	
+	public void DFS(int i)
+	{
+		int visited[]=new int[n];
+		int index=i,count=0;
+		System.out.print("DFS is : ");
+		int [] r =new int[n];
+		if(callDFS(index,visited,count,r));
+			r[0]=index;
+		
+		for (int j=0;j<n;j++)
+			System.out.print(r[j]+" ");
+	}
+	
+	private boolean callDFS(int i, int[] visited,int count,int[] r) 
+	{
+
+		visited[i]=1;
+		count++;
+		if(count==n)
+		{
+			return true;
+		}
+		
+		Node temp=g.get(i).getHead().getNext();
+		while(temp!=null)
+		{
+			i=temp.getData();
+			if(visited[i]==0)
+			{
+				if(callDFS(i, visited,count,r))
+				{
+					r[count]=i;
+			
+					return true;
+				}
+					
+				else
+					visited[i]=0;
+			}
+			temp=temp.getNext();
+			
+		}
+		
+
+		return false;
+		
+	}
+
 	public void PrintList()
 	{
 		for(int i=0;i<g.size();i++)
