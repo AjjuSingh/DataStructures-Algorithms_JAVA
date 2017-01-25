@@ -23,7 +23,7 @@ public class Heap {
 		}
 		else
 		{
-			while(i>0&&data>h[(i-1)/2])
+			while(i>0&&data<h[(i-1)/2])
 			{
 				h[i]=h[(i-1)/2];
 				i=(i-1)/2;
@@ -40,9 +40,9 @@ public class Heap {
 		int left=findLeftChild(i);
 		int right=findRightChild(i);
 		
-		if(left!=-1&&h[i]<h[left])
+		if(left!=-1&&h[i]>h[left])
 			max=left;
-		if(right!=-1&&h[i]<h[right])
+		if(right!=-1&&h[i]>h[right])
 			max=right;
 		
 		if(max!=i)
@@ -58,7 +58,7 @@ public class Heap {
 	}
 	
 	//Time O(logn)
-	public int deleteMax()
+	public int deleteMin()
 	{
 		int data=h[0];
 		h[0]=h[count-1];
@@ -87,6 +87,15 @@ public class Heap {
 		
 	}
 	
+	public int getPostion(int data)
+	{
+		for(int i=0;i<h.length;i++)
+		{
+			if(h[i]==data)
+				return i;
+		}
+		return -1;
+	}
 	public void print()
 	{
 		for (int i=0;i<h.length;i++)
@@ -122,6 +131,11 @@ public class Heap {
 		return -1;
 		}
 		return r;
+	}
+	public boolean isEmpty()
+	{
+		
+		return count==0;
 	}
 	
 }

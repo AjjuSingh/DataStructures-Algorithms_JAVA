@@ -1,5 +1,6 @@
 package Graphs.Matrix;
 
+import Heaps.Heap;
 import Queues.CircularArrays.Queue;
 
 public class Graph {
@@ -218,6 +219,142 @@ public class Graph {
 		
 		
 	
+		
+	}
+	
+	public void dikjstra(int s)
+	{
+		int w[][]=new int [noOfVertices][noOfVertices];
+		getWeights(w);
+		
+		int d[]=new int[noOfVertices];
+		for(int i=0;i<noOfVertices;i++)
+			d[i]=-1;
+		d[s]=0;
+		int distance=0;
+		Heap h=new Heap();
+		h.insert(s);
+		int p[]=new int[noOfVertices];
+		
+		while(!h.isEmpty())
+		{
+			int t=h.deleteMin();
+			for(int i=0;i<noOfVertices;i++)
+			{
+				if(g[t][i]==1)
+			{
+				distance=d[t]+w[t][i];
+				if(d[i]==-1)
+				{
+					d[i]=distance;
+					h.insert(i);
+					p[i]=t;
+				}
+				if(d[i]>distance)
+				{
+					
+					d[i]=distance;
+					p[i]=t;
+					
+				}
+				
+			}
+			}	
+		}
+		
+		for(int i=0;i<noOfVertices;i++)
+			System.out.println(p[i]);
+	}
+	
+	public void prims(int s)
+	{
+		int w[][]=new int [noOfVertices][noOfVertices];
+		getWeights(w);
+		
+		int d[]=new int[noOfVertices];
+		for(int i=0;i<noOfVertices;i++)
+			d[i]=-1;
+		d[s]=0;
+		int distance=0;
+		Heap h=new Heap();
+		h.insert(s);
+		int p[]=new int[noOfVertices];
+		
+		while(!h.isEmpty())
+		{
+			int t=h.deleteMin();
+			for(int i=0;i<noOfVertices;i++)
+			{
+				if(g[t][i]==1)
+			{
+				distance=d[t]+w[t][i];
+				if(d[i]==-1)
+				{
+					d[i]=w[t][i];
+					h.insert(i);
+					p[i]=t;
+				}
+				if(d[i]>distance)
+				{
+					
+					d[i]=distance;
+					p[i]=t;
+					
+				}
+				
+			}
+			}	
+		}
+		
+		for(int i=0;i<noOfVertices;i++)
+			System.out.println(p[i]);
+	}
+	
+	
+	public void bellmanFord(int s) throws Exception
+	{
+		int w[][]=new int [noOfVertices][noOfVertices];
+		getWeights(w);
+		
+		int d[]=new int[noOfVertices];
+		d[s]=0;
+		int distance=0;
+		Queue q=new Queue(noOfVertices);
+		q.enQueue(s);
+		int p[]=new int[noOfVertices];
+		
+		while(!q.isEmpty())
+		{
+			int t=q.deQueue();
+			for(int i=0;i<noOfVertices;i++)
+			{
+				if(g[t][i]==1)
+			{
+				distance=d[t]+w[t][i];
+				
+				if(d[i]>distance)
+				{
+					
+					d[i]=distance;
+					p[i]=t;
+					if(!q.isPresent(i))
+						q.enQueue(i);
+					
+				}
+				
+			}
+			}	
+		}
+		
+		for(int i=0;i<noOfVertices;i++)
+			System.out.println(p[i]);
+	}
+
+	private void getWeights(int[][] w) {
+		
+		w[0][1]=2;w[0][2]=7;w[0][3]=1;w[1][2]=3;
+		w[2][3]=4;w[2][4]=6;w[3][4]=2;w[4][5]=7;
+		w[3][5]=5;
 		
 	}
 }
