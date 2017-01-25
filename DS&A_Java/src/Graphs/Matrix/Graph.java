@@ -139,4 +139,85 @@ public class Graph {
 		
 		
 	}
+	
+	
+	public void APSPBook(int s) throws Exception
+	{
+		int d[]=new int[noOfVertices];
+		for(int i=0;i<noOfVertices;i++)
+			d[i]=-1;
+		d[s]=0;
+		int p[]=new int[noOfVertices];
+		Queue q=new Queue(noOfVertices);
+		q.enQueue(s);
+		while(!q.isEmpty())
+		{
+			int temp=q.deQueue();
+			for(int i=0;i<noOfVertices;i++)
+			{
+				if(g[temp][i]==1)
+				{
+					if(d[i]==-1)
+					{
+						d[i]=d[temp]+1;
+						p[i]=temp;
+						q.enQueue(i);
+					}
+				
+				}
+			}
+		
+		}
+		System.out.println("book version is");
+		for(int i=0;i<noOfVertices;i++)
+			System.out.print(p[i]+" ");
+		System.out.println();
+	}
+	
+	
+	
+	
+	
+	public void APSP(int s) throws Exception
+	{
+		System.out.println("my version is");
+		int source=s;
+		boolean found;
+		for(int dest=0;dest<noOfVertices;dest++)
+		{
+			Queue q=new Queue(noOfVertices);
+			found=false;
+			q.enQueue(s);
+			
+			while(!found)
+			{
+				int temp=q.deQueue();
+				if(g[temp][dest]==1 || temp==dest)
+				  {
+					found=true;
+					if(temp==dest)
+						System.out.print(0+" ");
+					else
+					System.out.print(temp+" ");
+					continue;
+				  }
+				else
+				{
+					for(int i=0;i<noOfVertices;i++)
+					{
+						if(g[temp][i]==1&& temp!=i && !q.isPresent(i))
+						{
+							q.enQueue(i);
+		
+						}
+					}	
+				}
+			}
+			
+		}
+		
+		
+	
+		
+	}
 }

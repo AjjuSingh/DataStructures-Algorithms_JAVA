@@ -12,6 +12,8 @@ public class Queue {
 		length=size;
 		nodes=0;
 		q=new int[length];
+		for(int i=0;i<length;i++)
+			q[i]=Integer.MAX_VALUE;
 	}
 	//Time O(1) for 1 enqueue
 	public void enQueue(int data)throws Exception
@@ -42,7 +44,7 @@ public class Queue {
 		}
 		
 		int temp=q[front];
-		q[front]=0;
+		q[front]=Integer.MAX_VALUE;
 		nodes--;
 		front=(front+1)%length;
 		return temp;
@@ -96,7 +98,13 @@ public class Queue {
 		}
 	}
 	
-	
+	public boolean isPresent(int data)
+	{
+			for(int i=0;i<q.length;i++)
+				if(data==q[i])
+					return true;
+		return false;
+	}
 
 	public int getFront() {
 		return front;

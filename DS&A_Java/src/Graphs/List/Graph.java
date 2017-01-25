@@ -148,7 +148,38 @@ public class Graph {
 			
 		}
 	}
-
+	
+	public void APSPBook(int s) throws Exception
+	{
+		int d[]=new int[n];
+		for(int i=0;i<n;i++)
+			d[i]=-1;
+		d[s]=0;
+		int p[]=new int[n];
+		Queue q=new Queue(n);
+		q.enQueue(s);
+		while(!q.isEmpty())
+		{
+			int temp=q.deQueue();
+			Node tempNode=g.get(temp).getHead().getNext();
+				while(tempNode!=null)
+				{
+					int data=tempNode.getData();
+					if(d[data]==-1)
+					{
+						d[data]=d[temp]+1;
+						p[data]=temp;
+						q.enQueue(data);
+					}
+					tempNode=tempNode.getNext();
+				
+				}
+			}
+		for(int i=0;i<n;i++)
+			System.out.print(p[i]+" ");
+		System.out.println();
+		
+		}
 	public void PrintList()
 	{
 		for(int i=0;i<g.size();i++)
