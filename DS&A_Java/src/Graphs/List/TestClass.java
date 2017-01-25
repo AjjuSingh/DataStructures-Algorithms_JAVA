@@ -17,7 +17,8 @@ public class TestClass {
 
 		//g.removeEdge(3, 4);
 		g.PrintList();
-		g.DFS(6);
+		//g.DFS(6);
+		g.BFS(1);
 		
 
 	}

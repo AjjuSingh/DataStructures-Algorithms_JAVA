@@ -5,6 +5,7 @@ import java.util.List;
 
 import LinkedLists.SLL.LinkedList;
 import LinkedLists.SLL.Node;
+import Queues.CircularArrays.Queue;
 
 
 public class Graph {
@@ -119,6 +120,33 @@ public class Graph {
 
 		return false;
 		
+	}
+	
+	
+	
+	public void BFS(int data) throws Exception
+	{
+		Queue q=new Queue(n);
+		int visited[]=new int[n];
+		q.enQueue(data);
+		while(!q.isEmpty())
+		{
+			int temp=q.deQueue();
+			visited[temp]=1;
+			System.out.println(temp);
+			
+			Node tempNode=g.get(temp).getHead().getNext();
+			while(tempNode!=null)
+			{
+				if(visited[tempNode.getData()]==0)
+				{
+					q.enQueue(tempNode.getData());
+					visited[tempNode.getData()]=1;
+				}
+				tempNode=tempNode.getNext();
+			}
+			
+		}
 	}
 
 	public void PrintList()

@@ -7,7 +7,7 @@ public class Queue {
 	
 	public Queue(int size)
 	{
-		front=-1;
+		front=0;
 		rear=0;
 		length=size;
 		nodes=0;
@@ -16,12 +16,8 @@ public class Queue {
 	//Time O(1) for 1 enqueue
 	public void enQueue(int data)throws Exception
 	{
-		if(front==rear)
-		{
-			
-			throw new Exception("Queue is full");
-		}
-		if(front==-1)
+		
+		if(front==0)
 		{
 			front=rear;
 			q[rear]=data;
@@ -40,7 +36,7 @@ public class Queue {
 	//Time O(1) for 1 dequeue
 	public int deQueue()throws Exception
 	{
-		if(front==-1)
+		if(front==rear)
 		{
 			throw new Exception("Queue if empty");
 		}
@@ -108,6 +104,13 @@ public class Queue {
 
 	public int getRear() {
 		return rear;
+	}
+	public boolean isEmpty()
+	{
+		if (front==rear)
+			return true;
+		return false;
+		
 	}
 
 	

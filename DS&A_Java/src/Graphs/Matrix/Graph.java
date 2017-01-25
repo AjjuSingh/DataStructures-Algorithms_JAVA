@@ -1,5 +1,7 @@
 package Graphs.Matrix;
 
+import Queues.CircularArrays.Queue;
+
 public class Graph {
 	
 	int g[][];
@@ -112,4 +114,29 @@ public class Graph {
 		return false;
 	}
 
+	
+	public void BFS(int data) throws Exception
+	{
+		Queue q=new Queue(noOfVertices);
+		int visited[]=new int[noOfVertices];
+		q.enQueue(data);
+		while(!q.isEmpty())
+		{
+			int temp=q.deQueue();
+			visited[temp]=1;
+			System.out.println(temp);
+			for(int i=0;i<noOfVertices;i++)
+			{
+				if(g[temp][i]==1 && visited[i]==0)
+				{
+					q.enQueue(i);
+					visited[i]=1;
+				}
+				
+			}
+		}
+		
+		
+		
+	}
 }

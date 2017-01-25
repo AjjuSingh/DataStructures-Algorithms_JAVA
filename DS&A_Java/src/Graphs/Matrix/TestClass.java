@@ -2,7 +2,7 @@ package Graphs.Matrix;
 
 public class TestClass {
 	
-	public static void main(String args[])
+	public static void main(String args[]) throws Exception
 	{
 		Graph g=new Graph(7);
 		g.addEdge(0, 1);
@@ -16,7 +16,8 @@ public class TestClass {
 		g.addEdge(4, 5);
 		g.addEdge(4, 6);
 		g.printGraphMatrix();
-		g.DFS(6);
+		//g.DFS(6);
+		g.BFS(1);
 	}
 
 }
