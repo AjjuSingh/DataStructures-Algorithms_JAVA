@@ -2,7 +2,7 @@ package Sorting;
 
 public class TestClass {
 
-	static int a[]={9,8,3,7,0,4,2,1};
+	static int a[]={9,8,0,3,7,6,4,2,1,5};
 	
 	public static void main(String[] args) {
 		
@@ -16,6 +16,11 @@ public class TestClass {
 		QuickSort q=new QuickSort(a);
 		q.quick(0, a.length-1);
 		q.print();
+		MergeSort m=new MergeSort();
+		m.mergeSort(a);
+		HeapSort h=new HeapSort(a);
+		h.heapSort();
+		
 	}
 
 }

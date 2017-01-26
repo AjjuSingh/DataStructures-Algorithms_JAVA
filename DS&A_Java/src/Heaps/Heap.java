@@ -42,7 +42,7 @@ public class Heap {
 		
 		if(left!=-1&&h[i]>h[left])
 			max=left;
-		if(right!=-1&&h[i]>h[right])
+		if(right!=-1&&h[max]>h[right])
 			max=right;
 		
 		if(max!=i)
@@ -137,5 +137,7 @@ public class Heap {
 		
 		return count==0;
 	}
+	
+	
 	
 }
