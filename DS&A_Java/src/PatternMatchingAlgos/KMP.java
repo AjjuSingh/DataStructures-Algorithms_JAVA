@@ -20,14 +20,26 @@ public class KMP {
 		System.out.println("The prefix table is :");
 		for(int i=0;i<pt.length;i++)
 			System.out.print(pt[i]+" ");
-		int i=0;
-		while(i<p)
+		int i=0,j=0;
+		int k=j;
+		while(i<p && j<t)
 		{
-			if(pattern.charAt(i)==text.charAt(i))
+			if(pattern.charAt(i)==text.charAt(j))
 			{
-				
+				i++;j++;
+			}
+			else if(j>0 && i!=0)
+			{
+				i=pt[i-1];
+			}
+			else
+			{
+				j++;
 			}
 		}
+		System.out.println();
+		if(i==p)
+			System.out.println("found");
 		
 		
 	}
@@ -45,7 +57,7 @@ public class KMP {
 				j++;
 				
 			}
-			else if(j!=0)
+			else if(j>0)
 			{
 				j=pt[j-1];
 			}

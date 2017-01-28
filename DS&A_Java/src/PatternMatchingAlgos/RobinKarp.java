@@ -12,7 +12,7 @@ public class RobinKarp {
 		this.text=t;
 		this.pattern=p;
 	}
-	//Time O(T+P)
+	//Time O(TP)
 	public void robinKarp()
 	{
 		int t=text.length();

@@ -6,7 +6,7 @@ public class TestClass {
 	public static void main(String args[])
 	{
 		String text=   "abxabcabcaby";
-		String pattern="abcaby";
+		String pattern="abcabcaby";
 		
 		BruteForce bf =new BruteForce(text,pattern);
  		bf.bruteForce();
@@ -14,5 +14,6 @@ public class TestClass {
 		rk.robinKarp();
 		KMP kmp=new KMP(text,pattern);
 		kmp.KMP();
+		
 	}
 }
