@@ -5,8 +5,8 @@ public class TestClass {
 	
 	public static void main(String args[])
 	{
-		String text=   "abxabcabcaby";
-		String pattern="abcabcaby";
+		String text=   "trusthardtoothbrushes";
+		String pattern="shes";
 		
 		BruteForce bf =new BruteForce(text,pattern);
  		bf.bruteForce();
@@ -14,6 +14,9 @@ public class TestClass {
 		rk.robinKarp();
 		KMP kmp=new KMP(text,pattern);
 		kmp.KMP();
+		BoyceMore bm=new BoyceMore(text,pattern);
+		bm.badMatchTable("tooth");
+		bm.bmh();
 		
 	}
 }
